@@ -1,20 +1,20 @@
 {
-        "name": "rule-engine",
-        "version": "0.0.1",
-        "description": "Simple rule engine that compares two objects using rules written in JavaScript",
-        "repository": {
-                "type": "git",
-                "url": "https://github.com/dashk/rule-engine/"
-        },
-        "dependencies": {
-          "mocha": "*"
-        },
-        "keywords": [
-                "rule engine"
-        ],
-        "author": "Kenny Wong",
-        "license": "MIT",
-        "scripts": {
-                "test": "mocha"
-        }
+  "name": "rule-engine",
+  "version": "0.1.0",
+  "description": "Simple rule engine that compares two objects using rules written in JavaScript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dashk/rule-engine/"
+  },
+  "dependencies": {
+    "mocha": "*"
+  },
+  "keywords": [
+    "rule engine"
+  ],
+  "author": "Kenny Wong",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha"
+  }
 }
