@@ -3,7 +3,9 @@
 rule-engine
 ===========
 
-A very simple (stupid?) rule "engine" that allows you to write rules, in JavaScript, to evaluate whether a rule should be matched based on the two objects and an optional parameter is given.
+A very simple (stupid?) rule "engine"/rule evaluator that allows you to write rules, in JavaScript, to evaluate whether a rule should be matched based on the two objects and an optional parameter is given.
+
+This is meant to be extremely light-weight and simple, and you should trust that whatever rules that was fed into the "engine" does not have malicious code.
 
 How To Use
 ==========
