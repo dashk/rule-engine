@@ -4,7 +4,7 @@
  * @param {string} name
  * @param {string} rules
  **/
-var Rule = function(name, rules) {
+function Rule(name, rules) {
   this.name = name;
   this.rules = rules;
 };
@@ -48,4 +48,5 @@ Rule.prototype.isValid = function(data) {
   return result;
 };
 
-exports.Rule = Rule;
+// This is the actual function that returns by require(...).
+module.exports = Rule;
