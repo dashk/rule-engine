@@ -13,13 +13,13 @@ How To Use
 1. Include rule.js in your code
 
    ```
-   var RuleNS = require('rule');
+   var Rule = require('rule');
    ```
 
 2. Create a new Rule with a name and JavaScript statements.
 
    ```
-   var rule = new RuleNS.Rule('rule-name', 'return data.name === "hello world";');
+   var rule = new Rule('rule-name', 'return data.name === "hello world";');
    ```
    
    In order for rule engine to work, the statement MUST return a true value should the rule is considered a match. (Not truthy, but a boolean true.)
