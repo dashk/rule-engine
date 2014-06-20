@@ -36,7 +36,7 @@ describe('Rule', function() {
         r = new RuleNS.Rule('name', rules);
 
       // Execute
-      var result = r.isMatch();
+      var result = r.isMatch({});
 
       // Verify
       assert.ok(result, 'Expects rule to match');
@@ -52,6 +52,31 @@ describe('Rule', function() {
 
       // Verify
       assert.ok(!result, 'Expects rule not to match.');
+    });
+
+    it('should return false when rules does not explicit return a value', function() {
+      // Setup
+      var rules = 'var hello = "world";',
+        r = new RuleNS.Rule('name', rules);
+
+      // Execute
+      var result = r.isMatch();
+
+      // Verify
+      assert.ok(!result, 'Expects rule not to match');
+    });
+
+    it('should evaluate rule based on given syntax when called', function() {
+      // Setup
+      var rules = 'return data.hello === "hello";',
+        r = new RuleNS.Rule('name', rules),
+        data = { hello: 'hello' };
+
+      // Execute
+      var result = r.isMatch(data);
+
+      // Verify
+      assert.ok(result, 'Expects rule to match');
     });
   });
 });

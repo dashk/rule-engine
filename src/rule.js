@@ -10,24 +10,42 @@ var Rule = function(name, rules) {
 };
 
 /**
- * Checks if rule is matched
+ * Checks if rule is a match.
  *
- * @param {Object} obj1
- * @param {Object} obj2
- * @param {Object} data
+ * @param {Object} data Data to be used in rule execution
  * @returns {bool}
  **/
-Rule.prototype.isMatch = function(obj1, obj2, data) {
+Rule.prototype.isMatch = function(data) {
   var code, result;
 
   try {
-    code = new Function('obj1', 'obj2', 'data', this.rules), result;
-    result = code.apply({}, [ obj1, obj2, data ]);
+    // When I put this in a separate function, it doesn't work.
+    result = (new Function('data', this.rules)).apply({}, [ data ]);
   } catch (e) {
-    return false;
+    result = false;
   }
 
-  return !!result;
+  // Boolean value only. :D
+  return result === true;
+};
+
+/**
+ * Checks if rules are valid based on syntax and given data.
+ *
+ * @param {Object} data
+ * @returns {bool}
+ **/
+Rule.prototype.isValid = function(data) {
+  var result;
+  try {
+    // For some reason, if I place this code in another function, it doesn't work.
+    (new Function('data', this.rules)).apply({}, [ data ]);
+    result = true;
+  } catch (e) {
+    result = false;
+  }
+
+  return result;
 };
 
 exports.Rule = Rule;
