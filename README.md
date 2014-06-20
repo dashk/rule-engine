@@ -14,14 +14,11 @@ How To Use
 
 2. Create a new Rule with a name and JavaScript statements.
 
-   var rule = new RuleNS.Rule('rule-name', 'return obj1.name === obj2.name;');
+   var rule = new RuleNS.Rule('rule-name', 'return data.name === "hello world";');
    
-   In order for rule engine to work, the statement MUST return a truthy value should the rule is considered a match.
+   In order for rule engine to work, the statement MUST return a true value should the rule is considered a match. (Not truthy, but a boolean true.)
 
-3. Execute the rule by passing in the objects you want to compare.
+3. Execute the rule by passing in the data you wanted to use to compare.
 
-   var result = rule.isMatch(obj1, obj2);
+   var result = rule.isMatch({ name: "hello world", garbage: "data" });
 
-   Or
-   
-   var result = rule.isMatch(obj1, obj2, { additionalCriteria: true });
