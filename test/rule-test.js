@@ -1,5 +1,5 @@
 var assert = require('assert'),
-  RuleNS = require('../src/rule');
+  Rule = require('../src/rule');
 
 describe('Rule', function() {
   describe('#constructor', function() {
@@ -9,7 +9,7 @@ describe('Rule', function() {
         rules = 'world';
 
       // Execute
-      var r = new RuleNS.Rule(name, rules);
+      var r = new Rule(name, rules);
 
       // Verify
       assert.equal(name, r.name, 'Expect name to be set');
@@ -21,7 +21,7 @@ describe('Rule', function() {
     it('should return false when rules contains syntax error.', function() {
       // Setup
       var rules = 'sowrongw9329"""',
-        r = new RuleNS.Rule('name', rules);
+        r = new Rule('name', rules);
 
       // Execute
       var result = r.isMatch();
@@ -33,7 +33,7 @@ describe('Rule', function() {
     it('should return true when rules return true.', function() {
       // Setup
       var rules = 'return true;',
-        r = new RuleNS.Rule('name', rules);
+        r = new Rule('name', rules);
 
       // Execute
       var result = r.isMatch({});
@@ -45,7 +45,7 @@ describe('Rule', function() {
     it('should return false when rules evaluates to false', function() {
       // Setup
       var rules = 'return false;',
-        r = new RuleNS.Rule('name', rules);
+        r = new Rule('name', rules);
 
       // Execute
       var result = r.isMatch();
@@ -57,7 +57,7 @@ describe('Rule', function() {
     it('should return false when rules does not explicit return a value', function() {
       // Setup
       var rules = 'var hello = "world";',
-        r = new RuleNS.Rule('name', rules);
+        r = new Rule('name', rules);
 
       // Execute
       var result = r.isMatch();
@@ -69,7 +69,7 @@ describe('Rule', function() {
     it('should evaluate rule based on given syntax when called', function() {
       // Setup
       var rules = 'return data.hello === "hello";',
-        r = new RuleNS.Rule('name', rules),
+        r = new Rule('name', rules),
         data = { hello: 'hello' };
 
       // Execute
