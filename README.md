@@ -1,4 +1,4 @@
-[![build status](https://secure.travis-ci.org/CSSLint/rule-engine.svg)](http://travis-ci.org/dashk/rule-engine)
+[![build status](https://secure.travis-ci.org/dashk/rule-engine.svg)](http://travis-ci.org/dashk/rule-engine)
 
 rule-engine
 ===========
