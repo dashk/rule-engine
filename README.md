@@ -1,7 +1,7 @@
 rule-engine
 ===========
 
-A very simple rule engine that allows you to write rules, in JavaScript, that compares two objects.
+A very simple (stupid?) rule "engine" that allows you to write rules, in JavaScript, to evaluate whether a rule should be matched based on the two objects and an optional parameter is given.
 
 How To Use
 ==========
@@ -19,3 +19,7 @@ How To Use
 3. Execute the rule by passing in the objects you want to compare.
 
    var result = rule.isMatch(obj1, obj2);
+
+   Or
+   
+   var result = rule.isMatch(obj1, obj2, { additionalCriteria: true });
